@@ -10,7 +10,7 @@ export const SearchHistory = ({data}) => {
   return data?.length > 0 ? (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
-        <Text type="title2">Terakhir dicari</Text>
+        <Text type="subTitle1">Terakhir dicari</Text>
         <Text
           type="description"
           style={{color: red}}
