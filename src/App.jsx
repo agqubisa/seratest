@@ -1,27 +1,27 @@
-import * as React from 'react';
-import {ActivityIndicator} from 'react-native';
+import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
+import {Provider} from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 
 import Routes from '~config/routes';
 import {Persistor, Store} from '~redux';
+import {navigationRef} from '~utils';
 
-export default function App() {
+const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <Provider store={Store}>
-      <PersistGate
-        loading={
-          <ActivityIndicator
-            size="large"
-            style={{alignSelf: 'center', flex: 1}}
-          />
-        }
-        persistor={Persistor}>
-        <NavigationContainer>
+      <PersistGate loading={false} persistor={Persistor}>
+        <NavigationContainer ref={navigationRef}>
           <Routes />
         </NavigationContainer>
       </PersistGate>
     </Provider>
   );
-}
+};
+
+export default App;

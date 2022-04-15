@@ -1,14 +1,15 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import reducer from './reducer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistStore, persistReducer} from 'redux-persist';
+
+import reducer from './reducer';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
   whitelist: [
-    'discoverReducer',
+    'historyReducer',
     'nowPlayingReducer',
     'popularReducer',
     'upcomingReducer',

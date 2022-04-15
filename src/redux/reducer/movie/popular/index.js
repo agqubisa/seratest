@@ -16,9 +16,9 @@ export const popularReducer = (state = initPopularState, action) => {
     case setPopular:
       return {
         ...state,
-        data: action.value,
+        data: action.value.results,
         isLoading: false,
-        page: action.page,
+        page: action.value.page,
       };
     case setPopularLoading:
       return {
@@ -33,7 +33,7 @@ export const popularReducer = (state = initPopularState, action) => {
     case setPagingPopular:
       return {
         ...state,
-        data: [...state.data, ...action.value],
+        data: [...state.data, ...action.value.results],
         isLoading: false,
       };
     default:

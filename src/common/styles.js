@@ -1,24 +1,20 @@
-import {StyleSheet} from 'react-native';
-import {black, greyLight, white} from './colors';
+import {black, cream, greyDark, white} from './colors';
 import {moderateScale} from './dimension';
-import {nunitoSansRegular, robotoSemiBold} from './fonts';
+import {nunitoRegular, nunitoBold, nunitoLight, nunitoSemiBold} from './fonts';
 
 export const globalStyle = {
   section: {
-    paddingHorizontal: moderateScale(16),
-    paddingVertical: moderateScale(25),
+    padding: moderateScale(16),
     marginBottom: moderateScale(6),
     backgroundColor: white,
   },
   section2: {
-    paddingHorizontal: moderateScale(16),
-    paddingVertical: moderateScale(25),
-    backgroundColor: 'white',
+    padding: moderateScale(16),
+    backgroundColor: white,
   },
   section3: {
-    paddingHorizontal: moderateScale(16),
-    paddingVertical: moderateScale(16),
-    backgroundColor: 'white',
+    padding: moderateScale(16),
+    backgroundColor: white,
   },
 
   searchBar: {
@@ -26,7 +22,7 @@ export const globalStyle = {
     flexDirection: 'row',
     alignItems: 'center',
     height: moderateScale(40),
-    backgroundColor: greyLight,
+    backgroundColor: cream,
     marginLeft: moderateScale(10),
     borderRadius: 4,
   },
@@ -34,13 +30,13 @@ export const globalStyle = {
   text: {
     title1: {
       fontSize: moderateScale(16),
-      fontWeight: '500',
       color: black,
+      fontFamily: nunitoBold,
     },
     title2: {
       fontSize: moderateScale(14),
-      fontWeight: '500',
       color: black,
+      fontFamily: nunitoBold,
     },
 
     // sub title
@@ -48,59 +44,43 @@ export const globalStyle = {
       fontSize: moderateScale(12),
       fontWeight: '500',
       color: black,
+      fontFamily: nunitoSemiBold,
     },
     subTitle2: {
       fontSize: moderateScale(10),
       fontWeight: '500',
       color: black,
+      fontFamily: nunitoSemiBold,
     },
 
     // body
     body1: {
-      fontSize: moderateScale(11),
-      fontFamily: nunitoSansRegular,
-      fontWeight: '400',
+      fontSize: moderateScale(10),
       color: black,
+      fontFamily: nunitoRegular,
     },
     body2: {
-      fontSize: moderateScale(9),
-      fontFamily: nunitoSansRegular,
-      fontWeight: '400',
+      fontSize: moderateScale(8),
       color: black,
+      fontFamily: nunitoRegular,
     },
 
     description: {
       fontSize: moderateScale(12),
-      fontFamily: nunitoSansRegular,
-      fontWeight: '400',
       color: black,
+      fontFamily: nunitoRegular,
     },
 
     // tag
     tag1: {
       fontSize: moderateScale(10),
-      fontFamily: nunitoSansRegular,
-      fontWeight: '500',
-      color: black,
+      color: greyDark,
+      fontFamily: nunitoLight,
     },
     tag2: {
       fontSize: moderateScale(8),
-      fontFamily: nunitoSansRegular,
-      fontWeight: '500',
-      color: black,
-    },
-
-    button1: {
-      fontSize: moderateScale(12),
-      fontFamily: robotoSemiBold,
-      fontWeight: '500',
-      color: white,
-    },
-    button2: {
-      fontSize: moderateScale(10),
-      fontFamily: robotoSemiBold,
-      fontWeight: '500',
-      color: white,
+      color: greyDark,
+      fontFamily: nunitoLight,
     },
   },
 };

@@ -1,17 +1,23 @@
-import {StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
+import {RefreshControl, SafeAreaView, ScrollView} from 'react-native';
+import {batch, useSelector} from 'react-redux';
 
-import {black} from '~common';
-import {Nowplaying} from './components';
+import {getNP, getPopularMovie, getUpcomingMovie} from '~redux/action';
+import {dispatch} from '~utils';
+
+import {HomeHeader, Nowplaying, Popular, Upcoming} from './components';
 
 const HomeScreen = () => {
-  const onRefresh = async () => {
-    // try {
-    //   const result = await getList({params: {page: 1}});
-    //   console.log(result);
-    // } catch (error) {
-    //   console.log('error : ', error);
-    // }
+  const {nowPlayingReducer, popularReducer, upcomingReducer} = useSelector(
+    state => state,
+  );
+
+  const onRefresh = () => {
+    batch(() => {
+      dispatch(getNP());
+      dispatch(getPopularMovie());
+      dispatch(getUpcomingMovie());
+    });
   };
 
   useEffect(() => {
@@ -19,12 +25,26 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <View>
-      <Nowplaying />
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+      <HomeHeader />
+      <ScrollView
+        style={{flex: 1}}
+        refreshControl={
+          <RefreshControl
+            onRefresh={onRefresh}
+            refreshing={
+              nowPlayingReducer.isLoading ||
+              popularReducer.isLoading ||
+              upcomingReducer.isLoading
+            }
+          />
+        }>
+        <Nowplaying data={nowPlayingReducer} />
+        <Popular data={popularReducer} />
+        <Upcoming data={upcomingReducer} />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({});

@@ -16,9 +16,9 @@ export const nowPlayingReducer = (state = initNowPlayingState, action) => {
     case setNowPlaying:
       return {
         ...state,
-        data: action.value,
+        data: action.value.results,
         isLoading: false,
-        page: action.page,
+        page: action.value.page,
       };
     case setNowPlayingLoading:
       return {
@@ -33,7 +33,7 @@ export const nowPlayingReducer = (state = initNowPlayingState, action) => {
     case setPagingNowPlaying:
       return {
         ...state,
-        data: [...state.data, ...action.value],
+        data: [...state.data, ...action.value.results],
         isLoading: false,
       };
     default:

@@ -1,13 +1,9 @@
 import {combineReducers} from 'redux';
-import {
-  discoverReducer,
-  nowPlayingReducer,
-  popularReducer,
-  upcomingReducer,
-} from './movie';
+import {historyReducer} from './history';
+import {nowPlayingReducer, popularReducer, upcomingReducer} from './movie';
 
 const reducer = combineReducers({
-  discoverReducer,
+  historyReducer,
   nowPlayingReducer,
   popularReducer,
   upcomingReducer,

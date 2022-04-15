@@ -16,9 +16,9 @@ export const upcomingReducer = (state = initUpcomingState, action) => {
     case setUpcoming:
       return {
         ...state,
-        data: action.value,
+        data: action.value.results,
         isLoading: false,
-        page: action.page,
+        page: action.value.page,
       };
     case setUpcomingLoading:
       return {
@@ -33,7 +33,7 @@ export const upcomingReducer = (state = initUpcomingState, action) => {
     case setPagingUpcoming:
       return {
         ...state,
-        data: [...state.data, ...action.value],
+        data: [...state.data, ...action.value.results],
         isLoading: false,
       };
     default:
