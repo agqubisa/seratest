@@ -42,7 +42,6 @@ export const historyReducer = (state = intiHistoryState, action) => {
     //LAST-SEEN
     case ADDLASTSEEN:
       const findSeen = state.lastSeen.find(x => x.id === action.value.id);
-      console.log(findSeen);
       if (!Boolean(findSeen)) {
         return {
           ...state,
